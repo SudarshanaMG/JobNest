@@ -63,6 +63,7 @@ if(isset($_POST['delete'])){
          <div style="font-size:x-large;"> Last date : <?php echo $fetch_jobs['date']; ?> </div>
          <form action="delete.php" method="post">
          <input type="hidden" name="id" value="<?php echo $id=$fetch_jobs['id']; ?>">
+           <input type="submit" name="update" class="btn" value="update">
            <input type="submit" name="delete" class="delete-btn" value="delete">
          </form>
       </div>
