@@ -14,9 +14,9 @@ if (isset($_POST['apply'])) {
  }
 if (isset($_POST['applynow'])) {
     $id = $_POST['id'];
-    $search = mysqli_query($conn, "SELECT * FROM `jobapplied` where id1='$id'") or die('query failed');
+    $search = mysqli_query($conn, "SELECT id1 FROM `jobapplied` WHERE id1='$id' AND uid='$user_id' ") or die('query failed');
     if(mysqli_num_rows($search) == 0 ){
-        $add_job = mysqli_query($conn, "INSERT INTO `jobapplied`(id1) VALUES('$id')") or die('query failed');
+        $add_job = mysqli_query($conn, "INSERT INTO `jobapplied`(id1,uid) VALUES('$id','$user_id')") or die('query failed');
         if($add_job){
            $message[] = 'job applicaiton applied successfully';
          }

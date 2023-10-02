@@ -52,7 +52,7 @@ if(!isset($user_id)){
 <div class="row">
   
   <?php
-         $select_jobs = mysqli_query($conn, "SELECT * FROM `joblist`,`jobapplied` WHERE id = id1") or die('query failed');
+         $select_jobs = mysqli_query($conn, "SELECT * FROM `joblist`,`jobapplied` WHERE id = id1 AND uid='$user_id'") or die('query failed');
          if(mysqli_num_rows($select_jobs) > 0){
             while($fetch_jobs = mysqli_fetch_assoc($select_jobs)){
       ?> 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2023 at 11:27 AM
+-- Generation Time: Oct 02, 2023 at 12:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,17 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `jobapplied` (
   `id1` int(11) NOT NULL,
-  `applidate` date NOT NULL DEFAULT current_timestamp()
+  `applidate` date NOT NULL DEFAULT current_timestamp(),
+  `uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `jobapplied`
 --
 
-INSERT INTO `jobapplied` (`id1`, `applidate`) VALUES
-(11, '2023-10-02'),
-(12, '2023-10-02'),
-(13, '2023-10-02');
+INSERT INTO `jobapplied` (`id1`, `applidate`, `uid`) VALUES
+(13, '2023-10-02', 4),
+(14, '2023-10-02', 3);
 
 -- --------------------------------------------------------
 
@@ -86,17 +86,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `user_type`) VALUES
 (2, 'sudarshan', 'admin@mail.com', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-(3, 'sud', 'ads@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'user');
+(3, 'sud', 'ads@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'user'),
+(4, 'sud', 's@gmail.com', '57f6fd9c0e6da61c1f802233d83277fc', 'user');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `jobapplied`
---
-ALTER TABLE `jobapplied`
-  ADD UNIQUE KEY `id1` (`id1`);
 
 --
 -- Indexes for table `joblist`
@@ -124,7 +119,7 @@ ALTER TABLE `joblist`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
